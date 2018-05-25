@@ -26,20 +26,12 @@ Then just call your plugin directly in an existing application:
 
 
 ```
-(relx) $ rebar3 auto
-===> Compiling rebar3_auto
-Setting up watches.  Beware: since -r was given, this may take a while!
-Watches established.
-Erlang/OTP 18 [erts-7.1] [source] [64-bit] [smp:4:4] [async-threads:0] [hipe] [kernel-poll:false]
+$ rebar3 auto
+===> Verifying dependencies...
+...
+Erlang/OTP 20 [erts-9.3] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threads:0] [hipe] [kernel-poll:false] [dtrace]
 
-Eshell V7.1  (abort with ^G)
-1> ===> This feature is experimental and may be modified or removed at any time.
-Compiling rebar3_auto
-Verifying dependencies...
-Compiling relx
-Compiling rebar3_auto
-Verifying dependencies...
-Compiling relx
-
-1>
+Eshell V9.3  (abort with ^G)
+1> ===> The rebar3 shell is a development tool; to deploy applications in production, consider using releases (http://www.rebar3.org/docs/releases)
+...
 ```
