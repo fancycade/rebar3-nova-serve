@@ -87,7 +87,18 @@ auto() ->
             receive 
                 {ChangedFile, _Events} ->
                     Ext = filename:extension(unicode:characters_to_binary(ChangedFile)),
-                    IsValid = lists:member(Ext, ?VALID_EXTENSIONS),
+                    IsValid = lists:any(
+                                fun(ValidExt) ->
+                                        RE = <<ValidExt/binary, "(.+)?">>,
+                                        Result = re:run(Ext, RE),
+                                        case Result of
+                                            {match, _Captured} -> true;
+                                            match -> true;
+                                            nomatch -> false;
+                                            {error, _ErrType} -> false
+                                        end
+                                end,
+                                ?VALID_EXTENSIONS),
                     case IsValid of
                         false -> pass;
                         true ->
