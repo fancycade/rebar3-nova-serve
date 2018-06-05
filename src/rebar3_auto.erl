@@ -40,8 +40,6 @@ init(State) ->
                      "Path to the config file to use. Defaults to "
                      "{shell, [{config, File}]} and then the relx "
                      "sys.config file if not specified."},
-                    {args_file, undefined, "args_file", string,
-                     "Command-line arguments are read from the args file."},
                     {name, undefined, "name", atom,
                      "Gives a long name to the node."},
                     {sname, undefined, "sname", atom,
