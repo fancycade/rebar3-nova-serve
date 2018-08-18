@@ -14,7 +14,7 @@ Use
 Add the plugin only to your user local rebar config in `~/.config/rebar3/rebar.config`:
 
     {plugins, [
-        {rebar3_auto, {git, "https://github.com/xuchaoqian/rebar3_auto.git", {branch, "master"}}}
+        {rebar3_auto, {git, "https://github.com/xuchaoqian/rebar3-auto.git", {branch, "master"}}}
     ]}.
 
 If you add it to your project rebar.config, it will get unloaded each time compilation occurs, thus breaking it.
