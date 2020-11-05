@@ -1,11 +1,11 @@
-{application,rebar3_auto,
+{application,rebar3_nova_serve,
              [{description,"Rebar3 plugin for auto compiling on changes"},
               {vsn,"0.3.2"},
               {registered,[]},
               {applications,[kernel,stdlib,enotify]},
               {env,[]},
               {modules,[]},
-              {maintainers,["Tristan Sloughter"]},
+              {maintainers,["Nova team"]},
               {licenses,["MIT"]},
               {links,[{"Github",
-                       "https://github.com/tsloughter/rebar3_auto"}]}]}.
+                       "https://github.com/novaframework/rebar3-nova-serve"}]}]}.

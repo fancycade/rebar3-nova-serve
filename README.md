@@ -1,4 +1,4 @@
-rebar_auto_plugin
+rebar_nova_serve_plugin
 =====
 
 A rebar3 plugin for auto running compile on source file change reloading modules in the shell.
@@ -14,7 +14,7 @@ Use
 Add the plugin only to your user local rebar config in `~/.config/rebar3/rebar.config`:
 
     {plugins, [
-        {rebar3_auto, {git, "https://github.com/xuchaoqian/rebar3-auto.git", {branch, "master"}}}
+        {rebar3_nova_serve, {git, "https://github.com/novaframework/rebar3-nova-serve.git", {branch, "master"}}}
     ]}.
 
 If you add it to your project rebar.config, it will get unloaded each time compilation occurs, thus breaking it.
@@ -28,7 +28,7 @@ Then just call your plugin directly in an existing application:
 
 
 ```
-$ rebar3 auto
+$ rebar3 nova serve
 ===> Verifying dependencies...
 ...
 Erlang/OTP 20 [erts-9.3] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threads:0] [hipe] [kernel-poll:false] [dtrace]
