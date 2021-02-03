@@ -178,8 +178,11 @@ compile_file(<<".dtl">>, Filename) ->
             %% Continue with the compilation
             Basename = filename:basename(filename:rootname(Filename)++"_dtl"),
             Modname = erlang:list_to_atom(Basename),
-            ErlyDTLOpts = [],
-            case erlydtl:compile_file(Filename, Modname, [binary|ErlyDTLOpts]) of
+            ErlyDTLOpts = [binary],
+            case erlydtl:compile_file(Filename, Modname, ErlyDTLOpts ) of
+                {ok, ModuleName, undefined} ->
+                    rebar_api:info("Compiled ~p", [ModuleName]),
+                    code:purge(ModuleName);
                 {ok, ModuleName, Binary} ->
                     rebar_api:info("Compiled ~p", [ModuleName]),
                     {module, _Mod} = code:load_binary(ModuleName, Filename, Binary),
@@ -190,6 +193,8 @@ compile_file(<<".dtl">>, Filename) ->
                     code:purge(ModuleName);
                 {error,Errors,Warnings} ->
                     rebar_api:error("Could not compile ~p. Exited with errors: ~p~nWarnings: ~p", [Filename, Errors, Warnings]),
+                    ok;
+                _ ->
                     ok
             end;
         _ ->
