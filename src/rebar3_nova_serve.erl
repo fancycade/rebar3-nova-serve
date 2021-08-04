@@ -200,8 +200,10 @@ compile_file(<<".dtl">>, Filename) ->
         _ ->
             {module, _} = code:load_file(erlydtl),
             compile_file(<<".dtl">>, Filename)
-    end.
+    end;
 
+compile_file(_, _) ->
+    ok.
 
 is_routefile([]) ->
     false;
